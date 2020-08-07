@@ -1,0 +1,24 @@
+@font-face {
+    font-family: Garamond;
+    src: url('../Assets/Fonts/EBGaramond08-Regular.otf');
+}
+@font-face {
+    font-family: Raleway;
+    src: url('../Assets/Fonts/Raleway-VariableFont_wght.ttf');
+}
+@font-face {
+    font-family: 'Montserrat-light';
+    src: url('../Assets/Fonts/Montserrat-Light.ttf');
+  }
+  @font-face {
+    font-family: 'Montserrat';
+    src: url('../Assets/Fonts/Montserrat-Regular.ttf');
+  }
+  @font-face {
+    font-family: 'Bebas';
+    src: url('../Assets/Fonts/BebasNeue-Regular.ttf');
+  }
+  @font-face {
+      font-family: 'OpenSans';
+      src: url('../Assets/Fonts/OpenSans-Regular.ttf');
+  }
