@@ -1,0 +1,75 @@
+html, body {
+    padding: 0;
+    margin: 0;
+    font-family: OpenSans;
+    font-weight: 100;
+    text-rendering: optimizeLegibility !important;
+    -webkit-font-smoothing: antialiased !important;
+    color: #555;
+}
+.noselect {
+    -webkit-touch-callout: none; /* iOS Safari */
+      -webkit-user-select: none; /* Safari */
+       -khtml-user-select: none; /* Konqueror HTML */
+         -moz-user-select: none; /* Firefox */
+          -ms-user-select: none; /* Internet Explorer/Edge */
+              user-select: none; /* Non-prefixed version, currently
+                                    supported by Chrome and Opera */
+  }
+
+::-webkit-scrollbar {
+    width: 3px;
+}
+::-webkit-scrollbar-track {
+    background: #fff;
+}
+::-webkit-scrollbar-thumb {
+    background: #888;
+}
+::-webkit-scrollbar-thumb:hover {
+    background: #555;
+}
+
+:root {
+    --frame-background: #2484C1;
+    --frame-icon-hover: #1C5A9B;
+    --frame-icon-color: #fff;
+    --sub-frame-background: #87B7D3;
+
+    --background-color: #fff;
+    --background-color-alt: #fff;
+    --color: #000;
+    --color-hover: #2484C1;
+    --color-alt: #555;
+    --definition-color: #333;
+    --definition-type-color: #888;
+    --definition-container-color: #333;
+
+    --header-color: #000;
+    --table-header-color: #2484C1;
+
+    --border: #999;
+    --border-alt: #555;
+    --border-hover: #555;
+}
+
+.darkMode {
+    --frame-background: #1a1a1a;
+    --sub-frame-background: #333333;
+    --background-color: #555;
+    --background-color-alt: #333333;
+
+    --color: #fff;
+    --color-hover: #87B7D3;
+    --color-alt: #fff;
+    --table-header-color: #87B7D3;
+    
+    --header-color: #87B7D3;
+
+    --definition-color: #fff;
+    --definition-type-color: #bbb;
+    --definition-container-color: #fff;
+
+    --border-alt: #999;
+    --border-hover: #fff;
+}

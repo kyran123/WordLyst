@@ -1,0 +1,8 @@
+/Assets
+/Dist
+/node_modules
+/Libraries
+*.exe
+.env
+package.json
+package-lock.json

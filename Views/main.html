@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script src="../Libraries/Jquery/jquery-3.5.1.min.js"></script>
+        <link rel="stylesheet" type="text/css" href="../Styling/fonts.css">
+        <link rel="stylesheet" type="text/css" href="../Styling/default.css">
+        <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+        <script src="https://unpkg.com/vuex"></script>
+
+        <script src="https://unpkg.com/vue-simple-context-menu/dist/vue-simple-context-menu.min.js"></script>
+ 
+        <link rel="stylesheet" type="text/css" href="https://unpkg.com/vue-simple-context-menu/dist/vue-simple-context-menu.css">
+    </head>
+    <body>
+        <div id="app" v-show="showProgram" :class="{ 'darkMode': darkMode }">
+            <app-frame-alt></app-frame-alt>
+            <app-content></app-content>
+        </div>
+    </body>
+    <script type="module">
+        import appFrame from '../Javascript/Components/Frame.js';
+        import appFrameAlt from '../Javascript/Components/Frame2.js';
+        import appContent from '../Javascript/Components/Content.js';
+        import eventBus from '../Javascript/Utility/EventBus.js';
+
+        var app = new Vue({
+            el: '#app',
+            components: {
+                appFrame,
+                appFrameAlt,
+                appContent
+            },
+            data() {
+                return {
+                    showProgram: false,
+                    darkMode: false
+                }
+            },
+            store: new Vuex.Store({
+              state: {
+                wordData: [],
+                menu: {
+                    activeCategory: 0,
+                    activeSubCategory: 0
+                }
+              },
+              getters: {
+                getAllData: (state) => {
+                    return state.wordData;
+                },
+                getCategory: (state) => {
+                    return state.menu.activeCategory;
+                },
+                getSubCategory: (state) => {
+                    return state.menu.activeSubCategory;
+                },
+                categoryData: (state) => {
+                    return state.wordData;
+                },
+                getActiveCategory: (state) => {
+                    return state.menu.activeCategory;
+                }
+              },
+              mutations: {
+                setWordData(state, value) {
+                    state.wordData = value;
+                },
+                setCategory(state, value) {
+                    state.menu.activeCategory = value;
+                },
+                setSubCategory(state, value) {
+                    state.menu.activeSubCategory = value;
+                }
+              }
+            }),
+            mounted() {
+                window.onload = () => {
+                    window.API.send("getDarkModeSetting");
+                    window.API.receive("returnDarkModeSetting", (value) => {
+                        eventBus.$emit("updateSettings", value);
+                        this.darkMode = value;
+                        window.API.send("updateProgress", 30);
+                    });
+                    window.API.receive("showVersionInfo", (status) => {
+                        console.log(status);
+                        eventBus.$emit('showVersionInfo', status);
+                    });
+                    window.API.send("getWords");
+                    window.API.receive("showWords", (data) => {
+                        console.log(data);
+                        this.$store.commit("setWordData", data);
+                        this.showProgram = true;
+                        eventBus.$emit('loaded');
+                        window.API.send("updateProgress", 50);
+                        setTimeout(function() {
+                            window.API.send("showMainScreen");
+                        }, 2000);
+                    });
+                }
+            }
+        })
+    </script>
+</html>
