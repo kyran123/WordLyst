@@ -1,4 +1,4 @@
-# [WordLyst](wordlyst.kylefransen.nl) - Writing aids in one single application for every writer.
+# [WordLyst](wordlyst.kylefransen.nl) - Writing aides in one single application for every writer.
 
 Finding words to use for your novel can be difficult. WordLyst makes finding the right word to make your story even more engaging super easy!
 
