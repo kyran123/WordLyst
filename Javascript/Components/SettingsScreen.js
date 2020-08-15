@@ -13,7 +13,6 @@ const settingsScreen = Vue.component('settings-screen', {
                     width="20"
                     height="20"
                     viewBox="0 0 24 24"
-                    shape-rendering="crispEdges"
                     fill="none"
                     stroke="#fff"
                     shape-rendering="crispEdges"

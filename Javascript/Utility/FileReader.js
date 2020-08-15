@@ -30,6 +30,7 @@ class fileReader {
         let checkMoment;
         //Check if version has been recently been checked
         checkMoment = moment.utc(parseInt(settings.get('data-version-check')));
+        //checkMoment = moment().subtract(50, 'days');
         //Compare date
         if(checkMoment.diff(now, 'days', true) < 0) {
             settings.set('data-version-check', moment.utc().add(30, 'd').format('x'));
@@ -65,12 +66,15 @@ class fileReader {
     // Check if version is up to date                                            //
     //---------------------------------------------------------------------------//
     isUpToDate(callback) {
+        /*For testing purpose:
+        callback(false);
+        return;*/
         // 1) Check if we have already the updated version
         let currentVersion;
         // 1a) get local version
         if(settings.has('data-version')) currentVersion = settings.get('data-version');
         // 1b) get version from api (if possible)
-        axios.get(`${process.env.API_LINK}/atlas/version`)
+        axios.get(`${apiLink}/atlas/version`)
         .then((response) => {
             const version = response.data.version;
             // 1c) compare the two versions
@@ -91,7 +95,7 @@ class fileReader {
     // Get the data from the API                                                 //
     //---------------------------------------------------------------------------//
     getDataFromAPI(callback) {
-        axios.get(`${process.env.API_LINK}/atlas`)
+        axios.get(`${apiLink}/atlas`)
         .then((response) => {
             callback(response.data);
         })

@@ -6,7 +6,6 @@ const iconClose = Vue.component('icon-close', {
                 width="18"
                 height="18"
                 viewBox="0 0 24 24"
-                shape-rendering="crispEdges"
                 fill="none"
                 stroke="#fff"
                 shape-rendering="crispEdges"

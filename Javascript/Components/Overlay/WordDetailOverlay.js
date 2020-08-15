@@ -13,7 +13,6 @@ const worldDetailsOverlay = Vue.component('word-details-overlay', {
                     width="20"
                     height="20"
                     viewBox="0 0 24 24"
-                    shape-rendering="crispEdges"
                     fill="none"
                     stroke="#fff"
                     shape-rendering="crispEdges"

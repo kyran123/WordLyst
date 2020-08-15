@@ -2,6 +2,7 @@
 /Dist
 /node_modules
 /Libraries
+/Backup
 *.exe
 .env
 package.json
