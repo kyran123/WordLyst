@@ -73,7 +73,7 @@ function showMainProgram() {
 	mainWindow.webContents.once('dom-ready', () => {
 		//If is in development
 		//Show dev tools
-		//mainWindow.webContents.openDevTools({ mode: "detach" });
+		mainWindow.webContents.openDevTools({ mode: "detach" });
 		ipcWrapper.increaseProgress(20);	
 	});
 	mainWindow.on('resize', () => {

@@ -1,6 +1,7 @@
 import subHeader from '../Components/subHeader.js';
 import appMenu from '../Components/Menu/MenuMain.js';
 import appMenuSub from '../Components/Menu/MenuSub.js';
+import contentComplex from '../Components/Content/ContentComplex.js';
 import contentSimple from '../Components/Content/ContentSimple.js';
 import contentTable from '../Components/Content/ContentTable.js';
 import contentSentences from '../Components/Content/ContentSentences.js';
@@ -15,6 +16,7 @@ const appContent = Vue.component('app-content', {
         subHeader,
         appMenu,
         appMenuSub,
+        contentComplex,
         contentSimple,
         contentTable,
         contentSentences,
@@ -26,6 +28,7 @@ const appContent = Vue.component('app-content', {
             <sub-header></sub-header>
             <app-menu></app-menu>
             <app-sub-menu v-show="showSubMenu"></app-sub-menu>
+            <content-complex v-show="contentType === 'Complex'"></content-complex>
             <content-simple v-show="contentType === 'Simple'"></content-simple>
             <content-table v-show="contentType === 'Table'"></content-table>
             <content-sentences v-show="contentType === 'Sentences'"></content-sentences>
